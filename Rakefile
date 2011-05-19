@@ -12,11 +12,11 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "rails_is_forked"
+  gem.name = "ruby_is_forked"
   gem.homepage = "http://github.com/kstephens/rails_is_forked"
   gem.license = "MIT"
-  gem.summary = %Q{Deal with resources (DB connections, etc) in forked Rails processes.}
-  gem.description = %Q{See http://github.com/kstephens/rails_is_forked}
+  gem.summary = %Q{Deal with resources (DB connections, etc) in forked Ruby processes.}
+  gem.description = %Q{See http://github.com/kstephens/ruby_is_forked}
   gem.email = "ks.github@kurtstephens.com"
   gem.authors = ["Kurt Stephens"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
@@ -45,7 +45,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "rails_is_forked #{version}"
+  rdoc.title = "ruby_is_forked #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
