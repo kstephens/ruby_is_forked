@@ -1,5 +1,6 @@
+require 'ruby_is_forked'
 
-module RailsIsForked
+module RubyIsForked
   module ForkCallback
     def self.included target
       super

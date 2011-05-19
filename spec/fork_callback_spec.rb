@@ -1,20 +1,20 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-require 'rails_is_forked/fork_callback'
+require 'ruby_is_forked/fork_callback'
 
-describe "ForkCallback" do
+describe "RubyIsForked::ForkCallback" do
   before(:each) do
     @parent_pid = $$
     @child_pid = nil
     @child_proc_called = 0
-    @child_proc = RailsIsForked::ForkCallback.add_callback_in_child! do | child_pid |
+    @child_proc = RubyIsForked::ForkCallback.add_callback_in_child! do | child_pid |
       @child_pid = child_pid
       $$.should == child_pid
       $$.should_not == @parent_pid
       @child_proc_called += 1
     end
     @parent_proc_called = 0
-    @parent_proc = RailsIsForked::ForkCallback.add_callback_in_parent! do | child_pid |
+    @parent_proc = RubyIsForked::ForkCallback.add_callback_in_parent! do | child_pid |
       @child_pid = child_pid
       $$.should_not == child_pid
       $$.should == @parent_pid
@@ -23,8 +23,8 @@ describe "ForkCallback" do
   end
 
   after(:each) do
-    RailsIsForked::ForkCallback.remove_callback_in_child!(@child_proc).should == @child_proc
-    RailsIsForked::ForkCallback.remove_callback_in_parent!(@parent_proc).should == @parent_proc
+    RubyIsForked::ForkCallback.remove_callback_in_child!(@child_proc).should == @child_proc
+    RubyIsForked::ForkCallback.remove_callback_in_parent!(@parent_proc).should == @parent_proc
   end
 
   it "should invoke callbacks with Process.fork { ... }" do

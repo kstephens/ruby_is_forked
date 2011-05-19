@@ -1,8 +1,9 @@
-require 'rails_is_forked/fork_callback'
+require 'ruby_is_forked'
+require 'ruby_is_forked/fork_callback'
 require 'ostruct'
 require 'thread' # Mutex
 
-module RailsIsForked
+module RubyIsForked
   # Adds Process.current[] variables that are cleared in child processes.
   module Process
     def self.included target

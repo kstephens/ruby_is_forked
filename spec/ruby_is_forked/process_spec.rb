@@ -1,8 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-require 'rails_is_forked/process'
+require 'ruby_is_forked/process'
 
-describe "RailsIsForked::Process" do
+describe "RubyIsForked::Process" do
   before(:each) do
     Process.current = nil
   end
